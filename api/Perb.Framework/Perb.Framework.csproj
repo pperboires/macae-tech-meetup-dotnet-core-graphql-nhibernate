@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Remove="CQRS\Write\BaseNHibernateClassMap.cs" />
+      <Compile Remove="CQRS\**" />
+      <Compile Remove="Write\BaseNHibernateClassMap.cs" />
+      <Compile Remove="Domains\Write\BaseNHibernateClassMap.cs" />
+      <Compile Remove="Infrastructure\LibLog\**" />
+      <Compile Remove="Infrastructure\SecretRetriever.cs" />
+      <Compile Remove="Infrastructure\ISecretRetriever.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="CQRS\**" />
+      <EmbeddedResource Remove="Infrastructure\LibLog\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="CQRS\**" />
+      <None Remove="Infrastructure\LibLog\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Domains" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FluentNHibernate" Version="2.1.2" />
+      <PackageReference Include="LibLog" Version="5.0.6" />
+      <PackageReference Include="MediatR" Version="5.1.0" />
+      <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.1.1" />
+      <PackageReference Include="NHibernate" Version="5.2.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+        <HintPath>..\..\..\..\..\..\..\..\..\..\usr\local\share\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.configuration.abstractions\2.1.1\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>

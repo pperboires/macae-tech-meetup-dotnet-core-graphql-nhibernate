@@ -1,0 +1,23 @@
+using System.Threading;
+using System.Threading.Tasks;
+using GraphQL.Conventions;
+using GraphQL.DataLoader;
+
+namespace Perb.FlightPlanning.Shared.Infrastructure.GraphQL
+{
+    public class UserContext : IUserContext, IDataLoaderContextProvider
+    {
+        public DataLoaderContext _context { get; private set; }
+
+        public UserContext(DataLoaderContext context)
+        {
+            _context = context;
+        }
+
+        public Task FetchData(CancellationToken token)
+        {
+            _context.DispatchAll(token);
+            return Task.CompletedTask;
+        }
+    }
+}

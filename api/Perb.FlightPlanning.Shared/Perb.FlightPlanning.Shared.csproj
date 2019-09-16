@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Perb.Framework\Perb.Framework.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FluentNHibernate" Version="2.1.2" />
+      <PackageReference Include="GraphQL.Conventions" Version="2.0.1" />
+      <PackageReference Include="LibLog" Version="5.0.6" />
+      <PackageReference Include="LightInject.Microsoft.DependencyInjection" Version="2.1.1" />
+      <PackageReference Include="MediatR" Version="5.1.0" />
+      <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.3.18" />
+      <PackageReference Include="NHibernate" Version="5.2.0" />
+      <PackageReference Include="Npgsql" Version="4.0.3" />
+      <PackageReference Include="System.Data.SQLite.Core" Version="1.0.111" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Infrastructure\IoC\**" />
+      <Compile Include="Infrastructure\IOC\LightInjectModule.cs" />
+      <Compile Remove="Domains\Write\ValueObject\MarineUnitFlightPreference.cs" />
+      <Compile Remove="Infrastructure\GraphQL\Params\RemoveAircraftTypesParams.cs" />
+      <Compile Remove="Infrastructure\GraphQL\Params\UpdateAircraftTypeParams.cs" />
+      <Compile Remove="Domains\Write\ValueObject\FlightPlanningResult.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Infrastructure\IoC\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Infrastructure\IoC\**" />
+      <None Remove="Infrastructure\SqlMigrator\001.sql" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Amazon.Lambda.SQSEvents, Version=1.0.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604">
+        <HintPath>..\..\..\..\..\..\.nuget\packages\amazon.lambda.sqsevents\1.1.0\lib\netstandard2.0\Amazon.Lambda.SQSEvents.dll</HintPath>
+      </Reference>
+      <Reference Include="AWSSDK.ApiGatewayManagementApi, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604">
+        <HintPath>..\..\..\..\..\..\.nuget\packages\awssdk.apigatewaymanagementapi\3.3.100.15\lib\netstandard2.0\AWSSDK.ApiGatewayManagementApi.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>
